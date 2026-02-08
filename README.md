@@ -128,4 +128,3 @@ Le projet utilise des alias de chemins pour simplifier les imports :
 ## License
 
 Propriétaire - Tous droits réservés
-
