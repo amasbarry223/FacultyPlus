@@ -114,7 +114,7 @@ const OptimizedImage = memo(function OptimizedImage({
             onError={handleError}
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
-            {...props}
+            {...(props as any)}
           />
         </picture>
       )}

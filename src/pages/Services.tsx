@@ -237,7 +237,7 @@ export default function Services() {
                 iconColor: 'text-red-500',
                 delay: 0.6,
               },
-            ].map((feature, idx) => {
+            ].map((feature) => {
               const Icon = feature.icon
               return (
                 <motion.div
