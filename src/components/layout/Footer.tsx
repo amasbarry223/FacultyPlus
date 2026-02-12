@@ -51,16 +51,16 @@ export default function Footer() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container max-w-6xl mx-auto px-4 py-16 md:py-20">
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         {/* Footer Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 mb-10 sm:mb-12">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="md:col-span-1"
+            className="col-span-2 sm:col-span-3 lg:col-span-1"
           >
             <Link to="/" className="block mb-4">
               <h3 className="font-display text-2xl font-bold text-foreground">
@@ -166,7 +166,7 @@ export default function Footer() {
 
         {/* Scroll to Top Button */}
         <motion.button
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all duration-300 opacity-0 pointer-events-none"
+          className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/50 transition-all duration-300 opacity-0 pointer-events-none z-50"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}

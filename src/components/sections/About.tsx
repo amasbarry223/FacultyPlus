@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
 import { BENEFITS } from '@/lib/constants'
 import OptimizedImage from '@/components/ui/OptimizedImage'
+import lmdImage from '@/assets/images/licence-master-doctorat-850x478.jpg'
 
 /**
  * About Section - FacultyPlus Landing Page
@@ -59,7 +60,7 @@ export default function About() {
 
         {/* Key Features Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -97,12 +98,12 @@ export default function About() {
           {/* Decorative shapes */}
           <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full blur-2xl -z-10" />
 
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1">
-              <h3 className="font-display text-3xl font-bold mb-4 text-foreground">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+            <div className="flex-1 w-full">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
                 Conforme au Système <span className="text-primary">LMD</span>
               </h3>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
                 FacultyPlus est entièrement optimisé pour le système LMD (Licence, Master, Doctorat),
                 garantissant une conformité totale avec les standards académiques internationaux. Gestion
                 des UE/EC, délibérations, et documents officiels sécurisés.
@@ -121,13 +122,15 @@ export default function About() {
                 ))}
               </div>
             </div>
-            <div className="flex-1 h-64 md:h-80 rounded-lg overflow-hidden border border-border/50">
+            <div className="flex-1 w-full h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden border border-border/50 relative group">
               <OptimizedImage
-                src="/images/features/dashboard-feature.webp"
-                alt="Système LMD intégré - Dashboard de gestion académique"
-                className="w-full h-full object-cover"
-                fallback="/images/features/placeholder.jpg"
+                src={lmdImage}
+                alt="Système LMD (Licence, Master, Doctorat) - Conforme aux standards académiques internationaux"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fallback="/images/students/african-students-campus.jpg"
               />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         </motion.div>

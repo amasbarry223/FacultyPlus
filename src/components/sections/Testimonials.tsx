@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Star, Quote } from 'lucide-react'
+import portraitWomanImage from '@/assets/images/portrait-young-woman-with-laptop-hands-outside-school.jpg'
+import prettyGirlImage from '@/assets/images/pretty-girl-with-studies-posing-park.jpg'
+import studentWalkingImage from '@/assets/images/african-american-student-walking-street.jpg'
+import celebratingManImage from '@/assets/images/young-african-man-standing-celebrating-success-street-looking-his-laptop-hand.jpg'
+import backpackGirlImage from '@/assets/images/african-girl-with-backpack-notes.jpg'
+import readingGirlImage from '@/assets/images/african-girl-holding-books-studying-while-standing-oudoors-girl-is-reading-book.jpg'
 
 /**
  * Testimonials Section - FacultyPlus
@@ -27,8 +33,8 @@ const testimonials: Testimonial[] = [
     name: 'Amadou Diallo',
     role: 'Étudiant',
     location: 'Dakar',
-    image: '/images/students/student-1.webp',
-    imageAlt: 'Photo de Amadou Diallo',
+    image: studentWalkingImage,
+    imageAlt: 'Photo de Amadou Diallo, étudiant utilisant FacultyPlus',
     text: "La plateforme web FacultyPlus a révolutionné la gestion de mon parcours universitaire. Interface intuitive et sécurisée !",
   },
   {
@@ -36,8 +42,8 @@ const testimonials: Testimonial[] = [
     name: 'Aissata Ouidad',
     role: 'Étudiante',
     location: 'Bamako',
-    image: '/images/students/student-2.webp',
-    imageAlt: 'Photo de Aissata Ouidad',
+    image: readingGirlImage,
+    imageAlt: 'Photo de Aissata Ouidad, étudiante utilisant FacultyPlus',
     text: "L'application mobile FacultyPlus est mon partenaire quotidien ! Simple et rapide !",
   },
   {
@@ -45,8 +51,8 @@ const testimonials: Testimonial[] = [
     name: 'Ibrahim Keita',
     role: 'Étudiant',
     location: 'Abidjan',
-    image: '/images/students/student-3.webp',
-    imageAlt: 'Photo de Ibrahim Keita',
+    image: celebratingManImage,
+    imageAlt: 'Photo de Ibrahim Keita, étudiant utilisant FacultyPlus',
     text: "FacultyPlus m'aide énormément dans mes études. Accès partout et consultation instantanée.",
   },
   {
@@ -54,9 +60,27 @@ const testimonials: Testimonial[] = [
     name: 'Aisha Ahmed',
     role: 'Étudiante',
     location: 'Lagos',
-    image: '/images/students/student-1.webp',
-    imageAlt: 'Photo de Aisha Ahmed',
+    image: backpackGirlImage,
+    imageAlt: 'Photo de Aisha Ahmed, étudiante utilisant FacultyPlus',
     text: "FacultyPlus a simplifié mes démarches administratives. Gérer mon inscription n'a jamais été aussi facile.",
+  },
+  {
+    id: 5,
+    name: 'Fatou Sall',
+    role: 'Étudiante',
+    location: 'Dakar',
+    image: portraitWomanImage,
+    imageAlt: 'Photo de Fatou Sall, étudiante utilisant FacultyPlus',
+    text: "Grâce à FacultyPlus, je peux accéder à mes cours et documents depuis n'importe où. Une véritable révolution pour mes études !",
+  },
+  {
+    id: 6,
+    name: 'Mariam Traoré',
+    role: 'Étudiante',
+    location: 'Ouagadougou',
+    image: prettyGirlImage,
+    imageAlt: 'Photo de Mariam Traoré, étudiante utilisant FacultyPlus dans un parc',
+    text: "J'adore étudier en plein air avec FacultyPlus ! L'application est si pratique et me permet de travailler où je veux.",
   },
 ] as const
 
@@ -106,7 +130,19 @@ function TestimonialAvatar({ name, image, imageAlt }: { name: string; image: str
       <img
         src={image}
         alt={imageAlt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`w-full h-full object-cover object-center transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        style={{
+          objectPosition: image.includes('african-students') ? 'center top' : 
+                         image.includes('students-together') ? 'center center' :
+                         image.includes('woman-laptop') ? 'center center' :
+                         image.includes('portrait-young-woman') ? 'center center' :
+                         image.includes('pretty-girl') ? 'center center' :
+                         image.includes('student-walking') ? 'center center' :
+                         image.includes('celebrating-success') ? 'center center' :
+                         image.includes('backpack-notes') ? 'center center' :
+                         image.includes('holding-books') ? 'center center' :
+                         'center center'
+        }}
         onLoad={() => setImageLoaded(true)}
         onError={() => {
           setImageError(true)
@@ -157,7 +193,7 @@ export default function Testimonials() {
               {duplicatedTestimonials.map((testimonial, index) => (
                 <li key={`${testimonial.id}-${index}`}>
                   <motion.div
-                    className="w-[360px] md:w-[580px] h-[280px] md:h-[300px] flex-shrink-0"
+                    className="w-[320px] sm:w-[360px] md:w-[580px] h-[260px] sm:h-[280px] md:h-[300px] flex-shrink-0"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}

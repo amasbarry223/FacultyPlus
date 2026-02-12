@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Smartphone, Monitor, Download, ArrowRight, BellRing, Zap } from 'lucide-react'
+import { Smartphone, Download, ArrowRight, BellRing, Zap } from 'lucide-react'
 import OptimizedImage from '@/components/ui/OptimizedImage'
 
 /**
@@ -18,20 +18,11 @@ const mockups = [
   {
     id: 'mobile',
     title: 'Application Mobile',
-    description: 'Applications natives iOS et Android avec synchronisation en temps réel',
-    image: '/images/mockups/mobile-ios.webp',
-    imageAlt: 'Mockup de l\'application mobile FacultyPlus',
+    description: 'Tableau de bord étudiant et authentification. Accédez à vos notes, cours, inscriptions et réclamations depuis votre smartphone.',
+    image: '/images/mockups/mockup1.png',
+    imageAlt: 'Mockup de l\'application mobile FacultyPlus - Tableau de bord étudiant et page de connexion',
     icon: Smartphone,
     platform: 'Mobile',
-  },
-  {
-    id: 'web',
-    title: 'Interface Web',
-    description: 'Dashboard complet accessible depuis votre navigateur, optimisé pour tous les écrans',
-    image: '/images/mockups/web-desktop.webp',
-    imageAlt: 'Mockup de l\'interface web FacultyPlus',
-    icon: Monitor,
-    platform: 'Web',
   },
 ]
 
@@ -60,7 +51,7 @@ export default function Mockups() {
         </motion.div>
 
         {/* Mockups Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 mb-16 max-w-2xl mx-auto">
           {mockups.map((mockup, index) => {
             const Icon = mockup.icon
             return (
@@ -74,11 +65,11 @@ export default function Mockups() {
               >
                 <div className="relative bg-card rounded-xl border border-border/50 hover:border-primary/50 transition-all duration-300 overflow-hidden hover:shadow-lg hover:shadow-primary/10">
                   {/* Mockup Image */}
-                  <div className="relative h-64 md:h-80 overflow-hidden">
+                  <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden bg-background/50">
                     <OptimizedImage
                       src={mockup.image}
                       alt={mockup.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                       fallback="/images/mockups/placeholder.jpg"
                     />
                     {/* Overlay on hover */}
@@ -108,7 +99,7 @@ export default function Mockups() {
 
         {/* Features Highlight */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}

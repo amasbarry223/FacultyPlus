@@ -31,7 +31,7 @@ export default function CTA() {
   }
 
   return (
-    <section className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-card/50 overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -88,7 +88,7 @@ export default function CTA() {
           {/* Contact Options */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16"
           >
             <div className="p-6 rounded-lg bg-card border border-border/50 hover:border-accent/50 transition-all duration-300">
               <Phone className="w-10 h-10 text-primary mb-3" />
@@ -118,20 +118,6 @@ export default function CTA() {
             </div>
           </motion.div>
 
-          {/* Trust Indicators */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 p-8 rounded-xl bg-card border border-border/50"
-          >
-            <p className="text-muted-foreground mb-6">Trusted by leading universities across Africa</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {['🏫', '🎓', '📚', '🌍', '✨'].map((icon, idx) => (
-                <div key={idx} className="text-3xl hover:opacity-100 transition-opacity">
-                  {icon}
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

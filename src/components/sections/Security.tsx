@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import { Shield, CheckCircle2 } from 'lucide-react'
+import { Shield, CheckCircle2, QrCode, Lock, ScanLine, Key } from 'lucide-react'
 import { DOCUMENTS, SECURITY_FEATURES } from '@/lib/constants'
-import OptimizedImage from '@/components/ui/OptimizedImage'
 
 /**
  * Security Section - FacultyPlus Landing Page
@@ -37,8 +36,8 @@ export default function Security() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* QR Code Visualization */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-12 md:mb-16">
+          {/* QR Code Visualization with Icons */}
           <motion.div
             className="flex items-center justify-center"
             initial={{ opacity: 0, x: -20 }}
@@ -46,15 +45,83 @@ export default function Security() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="relative w-full max-w-sm">
-              <OptimizedImage
-                src="/images/features/mobile-feature.webp"
-                alt="QR Code sécurisé pour authentification des documents FacultyPlus"
-                className="w-full rounded-lg border border-border/50"
-                fallback="/images/features/placeholder.jpg"
-              />
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold whitespace-nowrap">
-                🔐 Authentification Sécurisée
+            <div className="relative w-full max-w-sm mx-auto md:mx-0">
+              <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-card via-card to-card/80 border border-border/50 shadow-xl backdrop-blur-sm">
+                {/* QR Code Icon - Central */}
+                <motion.div
+                  className="flex items-center justify-center mb-6"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <div className="relative">
+                    <QrCode className="w-32 h-32 text-primary" strokeWidth={1.5} />
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center"
+                      animate={{
+                        rotate: [0, 360],
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      <div className="w-24 h-24 border-2 border-primary/30 rounded-lg" />
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Security Icons around QR Code */}
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4 sm:mb-6">
+                  <motion.div
+                    className="flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 rounded-lg bg-primary/10 border border-primary/20"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    <span className="text-[10px] sm:text-xs font-semibold text-foreground text-center">Chiffrement</span>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 rounded-lg bg-accent/10 border border-accent/20"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <ScanLine className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                    <span className="text-[10px] sm:text-xs font-semibold text-foreground text-center">Vérification</span>
+                  </motion.div>
+                  
+                  <motion.div
+                    className="flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 rounded-lg bg-primary/10 border border-primary/20"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    <Key className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                    <span className="text-[10px] sm:text-xs font-semibold text-foreground text-center">Authentification</span>
+                  </motion.div>
+                </div>
+
+                {/* Security Badge */}
+                <motion.div
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-accent rounded-full"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Shield className="w-4 h-4 text-primary-foreground" />
+                  <span className="text-sm font-semibold text-primary-foreground">
+                    Authentification Sécurisée
+                  </span>
+                </motion.div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-2 right-2 w-16 h-16 bg-primary/5 rounded-full blur-xl" />
+                <div className="absolute bottom-2 left-2 w-16 h-16 bg-accent/5 rounded-full blur-xl" />
               </div>
             </div>
           </motion.div>
@@ -116,7 +183,7 @@ export default function Security() {
             Documents Officiels Générés
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {DOCUMENTS.map((doc, idx) => (
               <motion.div
                 key={idx}

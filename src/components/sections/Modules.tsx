@@ -65,7 +65,7 @@ export default function Modules() {
   )
 
   return (
-    <section className="relative py-20 md:py-32 bg-background overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-card/50 overflow-hidden">
       {/* Decorative background */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -z-10" />
@@ -96,7 +96,7 @@ export default function Modules() {
           viewport={{ once: true, margin: '-100px' }}
         >
           <Tabs defaultValue="admin" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12 bg-card border border-border/50 p-1">
+            <TabsList className="grid w-full grid-cols-3 mb-8 sm:mb-12 bg-card border border-border/50 p-1 text-xs sm:text-sm">
               <TabsTrigger
                 value="admin"
                 className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2"

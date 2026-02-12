@@ -5,6 +5,7 @@ import Modules from '@/components/sections/Modules'
 import Mockups from '@/components/sections/Mockups'
 import Architecture from '@/components/sections/Architecture'
 import Security from '@/components/sections/Security'
+import Students from '@/components/sections/Students'
 import Testimonials from '@/components/sections/Testimonials'
 import CTA from '@/components/sections/CTA'
 
@@ -27,24 +28,59 @@ export default function Home() {
       <section id="hero">
         <Hero />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="about">
         <About />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="modules">
         <Modules />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="mockups">
         <Mockups />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="architecture">
         <Architecture />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="security">
         <Security />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
+      <section id="students">
+        <Students />
+      </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="testimonials">
         <Testimonials />
       </section>
+      
+      {/* Section Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
       <section id="cta">
         <CTA />
       </section>
